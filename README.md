@@ -25,15 +25,20 @@
 	ionic start myFirstApp tabs
 	ionic start myFirstApp sidemenu
 ```
-	### Visualizar seu projeto
+### Visualizar seu projeto
 ```
 	ionic serve
 ```
-    ### Visualizar seu projeto simulando app no celular
+### Visualizar seu projeto simulando app no celular
 ```
   ionic serve --lab
 ```
-    ### Gerar pages com ionic
+### Gerar pages com ionic
 ```
   ionic g page test 
 ```
+
+
+### Referencias
+
+https://ionicframework.com/docs/components
