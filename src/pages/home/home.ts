@@ -20,7 +20,7 @@ export class HomePage {
       this.http.get(this.url)
       .map( res => res.json())
       .subscribe(data => {
-        console.log(data);
+        this.beers = data;
       })
 
   }
