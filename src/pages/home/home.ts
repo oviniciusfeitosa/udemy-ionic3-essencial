@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 export class HomePage {
 
   private url:string = 'http://159.203.168.240:8080/district?city_id=1';
-  public beers:Array<{}>;
+  public neighborhoods:Array<{}>;
 
   constructor(
     public navCtrl: NavController,
@@ -20,12 +20,19 @@ export class HomePage {
       this.http.get(this.url)
       .map( res => res.json())
       .subscribe(data => {
-        this.beers = data;
+        this.neighborhoods = data;
       })
 
   }
 
   goToTestPage() {
     this.navCtrl.push(TestPage);
+  }
+
+  getNeighborhoodInfo(id) {
+    this.navCtrl.push(TestPage, {
+      'neighborhood_id' : id,
+      'api_url' : this.url
+    });
   }
 }

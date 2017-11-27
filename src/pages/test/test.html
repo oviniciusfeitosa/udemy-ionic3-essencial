@@ -7,8 +7,25 @@
 </ion-header>
 
 
-<ion-content padding>
-  <h1> Test Page </h1>
+<ion-content padding class="card-background-page">
+        
+    <ion-card>
+        
+      <ion-card-header>
+        Bairro
+      </ion-card-header>
+    
+      <ion-card-content>
+
+          <img src="img/card-saopaolo.png"/>
+          <div class="card-title">São Paulo</div>
+          <div class="card-subtitle">41 Listings</div>
+          {{ neighborhood.name }}
+      </ion-card-content>
+    
+    </ion-card>
+
+  <!-- <h1> Test Page </h1>
   <ion-list>
       <ion-item>
         <ion-label floating>Username</ion-label>
@@ -20,6 +37,6 @@
         <ion-input type="password"></ion-input>
       </ion-item>
       
-    </ion-list>
-    <button ion-button full (click)="showAlert()">Login</button>
+    </ion-list> -->
+    <!-- <button ion-button full (click)="showAlert()">Login</button> -->
 </ion-content>

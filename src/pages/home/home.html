@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let item of beers">
+    <button ion-item *ngFor="let item of neighborhoods" (click)="getNeighborhoodInfo(item.id)">
       {{ item.name }}
     </button>  
   </ion-list>
