@@ -12,15 +12,22 @@
     <ion-card>
         
       <ion-card-header>
-        Bairro
+          {{ beer.name }}
       </ion-card-header>
     
       <ion-card-content>
 
-          <img src="img/card-saopaolo.png"/>
-          <div class="card-title">São Paulo</div>
-          <div class="card-subtitle">41 Listings</div>
-          {{ neighborhood.name }}
+          <img src="{{ beer.img }}"/>
+          <div class="card-title">Detalhes</div>
+          <div class="card-subtitle">
+              <p>
+                  <label>Preço</label>{{ beer.price }}
+              </p>
+              <p>
+                  <label>Marca</label>{{ beer.mark }}
+              </p>
+          </div>
+
       </ion-card-content>
     
     </ion-card>

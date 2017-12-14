@@ -10,17 +10,17 @@ import 'rxjs/add/operator/map';
 })
 export class HomePage {
 
-  private url:string = 'http://159.203.168.240:8080/district?city_id=1';
-  public neighborhoods:Array<{}>;
+  private url:string = 'http://localhost:8080/v1';
+  public beers:Array<{}>;
 
   constructor(
     public navCtrl: NavController,
     public http: Http
   ) {
-      this.http.get(this.url)
+      this.http.get(this.url + '/beers')
       .map( res => res.json())
       .subscribe(data => {
-        this.neighborhoods = data;
+        this.beers = data;
       })
 
   }
@@ -29,9 +29,9 @@ export class HomePage {
     this.navCtrl.push(TestPage);
   }
 
-  getNeighborhoodInfo(id) {
+  getBeerInfo(id) {
     this.navCtrl.push(TestPage, {
-      'neighborhood_id' : id,
+      'beer_id' : id,
       'api_url' : this.url
     });
   }
