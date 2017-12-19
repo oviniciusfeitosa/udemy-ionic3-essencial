@@ -1,0 +1,81 @@
+version: '2'
+services:
+  database:
+    image: mysql:latest
+    container_name: my-database
+    volumes:
+      - ./database/mysql/conf.d:/etc/mysql/conf.d
+      - ./database/mysql/data:/var/lib/mysql
+      - ./database/mysql/log:/var/log/
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_ROOT_HOST=0.0.0.0
+      - MYSQL_DATABASE=my_database
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+      - right=WRITE
+  webserver:
+    user: $UID
+    build: api_silex/images/docker_webserver
+    image: vinnyfs89/nginx_webserver:1.0
+    container_name: nginx_webserver
+    volumes:
+      - ./api_silex/images/docker_webserver/nginx/conf.d:/etc/nginx/conf.d
+      - ./api_silex/application/api:/api
+      - ./api_silex/application/log:/var/log/nginx/
+    ports:
+      - "80:80"
+      - "8080:8080"
+    environment:
+      - UID=vinnyfs89
+      - NGINX_HOST=localhost
+    links:
+      - api
+  api:
+    user: $UID
+    build: api_silex/images/docker_api
+    image: vinnyfs89/silex_api:1.0
+    container_name: silex_api_container
+    ports:
+      - "9000"
+      - "9001"
+    volumes:
+      - ./api_silex/application/log/apache2/silex_api:/var/log/apache2
+      - ./api_silex/application/api/:/api
+    environment:
+      - UID=vinnyfs89
+      - APP_BACKEND_HOST=localhost
+      - APP_BACKEND_HOST_PORT=8080
+      - APP_FRONTEND_HOST=localhost:3000
+      - IS_PRODUCTION_AMBIENT=false
+      - APP_SECRET=dasdasdasd
+
+     # CONFIG DATABASE
+      - DB_DRIVER=mysql
+      - DB_NAME=my_database
+      - DB_HOST=database-mysql-dns
+      - DB_USERNAME=admin
+      - DB_PASSWORD=admin
+      - DB_DATABASE=my_database
+      - DB_COLLATION=utf8_unicode_ci
+      - DB_CHARSET=utf8
+      - DB_PREFIX=
+
+     # xDebug configs for 'development' enviroment
+      - XDEBUG_INSTALL="true"
+      - XDEBUG_REMOTE_ENABLE=on
+      - XDEBUG_REMOTE_AUTOSTART=on
+      - XDEBUG_REMOTE_HANDLER=dbgp
+      - XDEBUG_REMOTE_CONNECT_BACK=1
+      - XDEBUG_PROFILER_ENABLE=1
+      - XDEBUG_PROFILER_OUTPUT_DIR=/tmp/www/html
+      - XDEBUG_REMOTE_PORT=9001
+      - XDEBUGINI_PATH=/usr/local/etc/php/conf.d/xdebug.ini
+      - XDEBUG_DEFAULT_ENABLE=1
+      - XDEBUG_IDEKEY=PHPSTORM
+    links:
+      - database
+    external_links:
+      - my-database:database-mysql-dns
