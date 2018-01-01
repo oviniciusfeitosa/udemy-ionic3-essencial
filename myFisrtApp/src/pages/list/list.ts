@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams, ToastController} from 'ionic-angular';
-import {Http, RequestOptions} from '@angular/http';
+import {Http, Headers, RequestOptions} from '@angular/http';
 
 @Component({
     selector: 'page-list',
@@ -28,8 +28,8 @@ export class ListPage {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
+        let options = new RequestOptions({ headers: headers });
 
-        let options = new RequestOptions({headers: headers});
         this.http.post(this.url + '/beers', beer, options)
             .map(res => res.json())
             .subscribe(
