@@ -1,0 +1,34 @@
+{
+    "name": "vinnyfs89/api_silex",
+    "require": {
+        "php": "=7.1.9",
+        "silex/silex": "^2.0",
+        "doctrine/annotations": "1.4.*",
+        "doctrine/orm": "2.5.*",
+        "doctrine/common": "2.5.*",
+        "doctrine/dbal": "2.5.*",
+        "dflydev/doctrine-orm-service-provider": "2.*",
+        "lcobucci/jwt": "3.3.x-dev",
+        "jms/serializer": "^1.3",
+        "illuminate/hashing": "^5.4",
+        "jdesrosiers/silex-cors-provider": "^1.4",
+        "vinnyfs89/x-dump": "dev-master"
+    },
+    "config": {
+        "bin-dir": "bin/"
+    },
+    "authors": [
+        {
+            "name": "Vinícius Feitosa da Silva",
+            "email": "viniciusfesil@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ApiMaster\\" : "src/"
+        }
+    },
+    "before_script" : {
+        "flags":"--prefer-dist"
+    }
+}
