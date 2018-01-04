@@ -4,3 +4,5 @@ api_silex/.idea/
 api_silex/vendor/
 api_silex/log/
 database/
+api_silex/application/log/access.log
+api_silex/application/log/error.log
