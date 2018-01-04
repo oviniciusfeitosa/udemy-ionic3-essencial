@@ -18,3 +18,6 @@
 
 - [Starting a new project](./docs/NewProject.md)
 - [Backend - Api Silex](./docs/BackendApiSilex.md)
+- [Configure Android Environment](./docs/ConfigureAndroidEnvironment.md)
+- [Building Android APP](./docs/BuildingAndroidApp.md)
+- [Ionic Native](./docs/IonicNative.md)
