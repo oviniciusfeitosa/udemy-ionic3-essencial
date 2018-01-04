@@ -2,6 +2,9 @@ import {Component} from '@angular/core';
 import {NavController, NavParams, ToastController} from 'ionic-angular';
 import {Http, Headers, RequestOptions} from '@angular/http';
 
+import { Camera, CameraOptions } from '@ionic-native/camera';
+
+
 @Component({
     selector: 'page-list',
     templateUrl: 'list.html'
