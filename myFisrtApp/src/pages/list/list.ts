@@ -17,13 +17,15 @@ export class ListPage {
         name: "",
         price: "",
         type: "",
-        mark: ""
+        mark: "",
+        img: ""
     };
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 public http: Http,
-                public toastCtrl: ToastController) {
+                public toastCtrl: ToastController,
+                public camera: Camera) {
 
     }
 
@@ -45,4 +47,20 @@ export class ListPage {
                     toast.present();
                 });
     }
+
+    getPhoto() {
+        const options: CameraOptions = {
+            quality: 100,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE
+        };
+
+        this.camera.getPicture(options).then((imageData) => {
+            let base64Image = 'data:image/jpeg;base64,' + imageData;
+            this.beer.img = base64Image;
+        }, (err) => {
+            console.log(err)
+        });
+    };
 }
