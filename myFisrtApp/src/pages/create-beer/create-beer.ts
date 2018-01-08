@@ -39,7 +39,6 @@ export class CreateBeerPage {
             .map(res => res.json())
             .subscribe(
                 data => {
-                    console.log(data);
                     let toast = this.toastCtrl.create({
                         message: data.msg,
                         duration: 3000

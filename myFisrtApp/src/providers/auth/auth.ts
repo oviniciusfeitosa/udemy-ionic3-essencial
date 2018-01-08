@@ -23,6 +23,7 @@ export class AuthProvider {
                 //data = { token : 'JWT' }
                 data => {
                     this.storage.set('token', data.token);
+                    // console.log(this.storage.get('token'));
                 });
     }
 

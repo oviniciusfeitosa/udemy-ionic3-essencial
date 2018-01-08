@@ -26,7 +26,7 @@ $app->register(new JWTServiceProvider(), [
     'expires' => 3600,
     'signer' => 'HMACS'
 ]);
-//xd($dbParams);
+
 /**
  * Registra o Doctrine ORM Service Provider
  */

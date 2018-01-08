@@ -9,6 +9,7 @@ import {HomePage} from '../pages/home/home';
 import {CreateBeerPage} from '../pages/create-beer/create-beer';
 import {BeerDetailsPage} from '../pages/beer-details/beer-details';
 import {LoginPage} from '../pages/login/login';
+import {CreateUserPage} from "../pages/create-user/create-user";
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -22,6 +23,7 @@ import {IonicStorageModule} from "@ionic/storage";
         MyApp,
         HomePage,
         CreateBeerPage,
+        CreateUserPage,
         BeerDetailsPage,
         LoginPage,
     ],
@@ -36,6 +38,7 @@ import {IonicStorageModule} from "@ionic/storage";
         MyApp,
         HomePage,
         CreateBeerPage,
+        CreateUserPage,
         BeerDetailsPage,
         LoginPage,
     ],
