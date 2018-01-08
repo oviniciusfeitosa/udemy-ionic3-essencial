@@ -7,7 +7,7 @@ import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 // import {ListPage} from '../pages/list/list';
 import {CreateBeerPage} from '../pages/create-beer/create-beer';
-import {TestPage} from '../pages/test/test';
+import {BeerDetailsPage} from '../pages/beer-details/beer-details';
 import {LoginPage} from '../pages/login/login';
 
 import {StatusBar} from '@ionic-native/status-bar';
@@ -22,7 +22,7 @@ import {IonicStorageModule} from "@ionic/storage";
         MyApp,
         HomePage,
         CreateBeerPage,
-        TestPage,
+        BeerDetailsPage,
         LoginPage,
     ],
     imports: [
@@ -36,7 +36,7 @@ import {IonicStorageModule} from "@ionic/storage";
         MyApp,
         HomePage,
         CreateBeerPage,
-        TestPage,
+        BeerDetailsPage,
         LoginPage,
     ],
     providers: [

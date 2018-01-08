@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
 
-@IonicPage()
+// @IonicPage()
 @Component({
-  selector: 'page-test',
-  templateUrl: 'test.html',
+  selector: 'page-beer-details',
+  templateUrl: 'beer-details.html',
 })
-export class TestPage {
+export class BeerDetailsPage {
 
   public beer: any = {};
 
@@ -31,7 +31,7 @@ export class TestPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TestPage');
+    console.log('ionViewDidLoad BeerDetailsPage');
   }
 
   // showAlert() {

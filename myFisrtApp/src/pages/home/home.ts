@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {TestPage} from '../test/test';
+import {BeerDetailsPage} from '../beer-details/beer-details';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -23,12 +23,8 @@ export class HomePage {
 
     }
 
-    goToTestPage() {
-        this.navCtrl.push(TestPage);
-    }
-
     getBeerInfo(id) {
-        this.navCtrl.push(TestPage, {
+        this.navCtrl.push(BeerDetailsPage, {
             'beer_id': id,
             'api_url': this.url
         });
