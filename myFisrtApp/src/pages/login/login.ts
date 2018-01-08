@@ -30,6 +30,10 @@ export class LoginPage {
         this.authService.login(this.credential);
     }
 
+    logout() {
+        this.authService.logout();
+    }
+
     createNewUser() {
         this.navCtrl.push(CreateUserPage, {});
     }

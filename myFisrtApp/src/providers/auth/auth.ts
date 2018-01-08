@@ -2,12 +2,19 @@ import {Http, RequestOptions, Headers} from '@angular/http';
 import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
 import {Storage} from '@ionic/storage'
+import {ToastController} from "ionic-angular";
 
 @Injectable()
 export class AuthProvider {
 
-    constructor(public http: Http,
-                public storage: Storage) {
+    private messageNotLogged: string = 'Você precisa logar para acessar.';
+    private messageUserLogout: string = 'Você foi deslogado.';
+
+    constructor(
+        public http: Http,
+        public storage: Storage,
+        public toastCtrl: ToastController
+    ) {
         console.log('Hello AuthProvider Provider');
     }
 
@@ -28,12 +35,21 @@ export class AuthProvider {
     }
 
     userIsLogged() {
-        this.storage.get('token').then(
+        return this.storage.get('token').then(
             val => {
-                console.log(val)
+                console.log(val);
+
+
                 if (val) {
                     return val;
                 } else {
+                    let toast = this.toastCtrl.create({
+                        message: this.messageNotLogged,
+                        duration: 3000
+                    });
+
+                    toast.present();
+
                     return false;
                 }
             }
@@ -42,6 +58,13 @@ export class AuthProvider {
 
     logout() {
         this.storage.remove('token');
+
+        let toast = this.toastCtrl.create({
+            message: this.messageNotLogged,
+            duration: 3000
+        });
+
+        toast.present();
     }
 
 }
