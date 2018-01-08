@@ -5,7 +5,8 @@ import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
-import {ListPage} from '../pages/list/list';
+// import {ListPage} from '../pages/list/list';
+import {CreateBeerPage} from '../pages/create-beer/create-beer';
 import {TestPage} from '../pages/test/test';
 import {LoginPage} from '../pages/login/login';
 
@@ -20,7 +21,7 @@ import {IonicStorageModule} from "@ionic/storage";
     declarations: [
         MyApp,
         HomePage,
-        ListPage,
+        CreateBeerPage,
         TestPage,
         LoginPage,
     ],
@@ -34,7 +35,7 @@ import {IonicStorageModule} from "@ionic/storage";
     entryComponents: [
         MyApp,
         HomePage,
-        ListPage,
+        CreateBeerPage,
         TestPage,
         LoginPage,
     ],

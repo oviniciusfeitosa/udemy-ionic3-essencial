@@ -30,4 +30,8 @@ export class LoginPage {
     this.authService.login(this.credential);
   }
 
+  cadastrar() {
+
+  }
+
 }

@@ -6,10 +6,10 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 
 
 @Component({
-    selector: 'page-list',
-    templateUrl: 'list.html'
+    selector: 'page-create-beer',
+    templateUrl: 'create-beer.html'
 })
-export class ListPage {
+export class CreateBeerPage {
     selectedItem: any;
     icons: string[];
     private url: string = 'http://localhost:8080/v1';
