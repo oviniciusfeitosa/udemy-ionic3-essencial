@@ -20,9 +20,9 @@ export class AuthProvider {
         this.http.post('http://localhost:8080/v1/auth/login', credentials, options)
             .map(res => res.json())
             .subscribe(
-                //data = JWT
+                //data = { token : 'JWT' }
                 data => {
-                    console.log(data);
+                    this.storage.set('token', data.token);
                 });
     }
 
