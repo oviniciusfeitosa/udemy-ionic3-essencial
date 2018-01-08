@@ -3,6 +3,7 @@ import {NavController, NavParams, ToastController} from 'ionic-angular';
 import {Http, Headers, RequestOptions} from '@angular/http';
 
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import {AuthProvider} from "../../providers/auth/auth";
 
 
 @Component({
@@ -25,8 +26,14 @@ export class CreateBeerPage {
                 public navParams: NavParams,
                 public http: Http,
                 public toastCtrl: ToastController,
-                public camera: Camera) {
+                public camera: Camera,
+                public authService: AuthProvider
+    ) {
 
+    }
+
+    ionViewCanEnter() {
+        return this.authService.userIsLogged();
     }
 
     saveBeer(beer) {
@@ -62,4 +69,6 @@ export class CreateBeerPage {
             console.log(err)
         });
     };
+
+
 }

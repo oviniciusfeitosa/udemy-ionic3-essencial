@@ -30,7 +30,8 @@ export class AuthProvider {
     userIsLogged() {
         this.storage.get('token').then(
             val => {
-                if (val !== undefined) {
+                console.log(val)
+                if (val) {
                     return val;
                 } else {
                     return false;
